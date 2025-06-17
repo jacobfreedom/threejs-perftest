@@ -4,6 +4,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GUI } from 'dat.gui';
 import Stats from 'three/examples/jsm/libs/stats.module.js';
 import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';
+import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module.js';
 
 const LOD_PATHS = {
   lod1: '/lod1/Untitled.gltf',
@@ -13,10 +14,10 @@ const LOD_PATHS = {
 };
 
 const NORMAL_MAP_PATHS = {
-  lod1: '/lod1/lambert1_normal_1001.png',
-  lod2: '/lod2/lambert1_normal_1001.png',
-  lod3: '/lod3/lambert1_normal_1001.png',
-  lod4: '/lod4/lambert1_normal_1001.png',
+  lod1: '/lod1/lambert1_normal_1001.webp',
+  lod2: '/lod2/lambert1_normal_1001.webp',
+  lod3: '/lod3/lambert1_normal_1001.webp',
+  lod4: '/lod4/lambert1_normal_1001.webp',
 };
 
 // Global scene variables
@@ -76,6 +77,8 @@ async function init() {
 async function loadLODs() {
   const loader = new GLTFLoader();
   const textureLoader = new THREE.TextureLoader();
+
+  loader.setMeshoptDecoder( MeshoptDecoder );
 
   // First load lod1 with its normal map
   try {

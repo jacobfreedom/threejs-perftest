@@ -1,157 +1,146 @@
 {
-  "accessors": [
-    {
-      "bufferView": 0,
-      "componentType": 5125,
-      "count": 295944,
-      "type": "SCALAR"
-    },
-    {
-      "bufferView": 1,
-      "componentType": 5126,
-      "count": 51737,
-      "max": [
-        0.540000081062317,
-        0.675000071525574,
-        0.0956988111138344
-      ],
-      "min": [
-        -0.540000081062317,
-        -0.675000071525574,
-        -1.82539224624634e-07
-      ],
-      "type": "VEC3"
-    },
-    {
-      "bufferView": 2,
-      "componentType": 5126,
-      "count": 51737,
-      "type": "VEC3"
-    },
-    {
-      "bufferView": 3,
-      "componentType": 5126,
-      "count": 51737,
-      "type": "VEC4"
-    },
-    {
-      "bufferView": 4,
-      "componentType": 5126,
-      "count": 51737,
-      "type": "VEC2"
-    }
-  ],
   "asset": {
-    "generator": "Adobe Substance 3D Painter 9.1.2",
+    "generator": "glTF-Transform v4.1.2",
     "version": "2.0"
   },
+  "accessors": [
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 295944,
+      "normalized": false,
+      "byteOffset": 0,
+      "bufferView": 0
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5120,
+      "count": 51737,
+      "normalized": true,
+      "byteOffset": 0,
+      "bufferView": 1
+    },
+    {
+      "type": "VEC4",
+      "componentType": 5120,
+      "count": 51737,
+      "normalized": true,
+      "byteOffset": 0,
+      "bufferView": 2
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5122,
+      "count": 51737,
+      "max": [
+        26215,
+        32767,
+        2324
+      ],
+      "min": [
+        -26215,
+        -32767,
+        -2324
+      ],
+      "normalized": true,
+      "byteOffset": 0,
+      "bufferView": 3
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5123,
+      "count": 51737,
+      "normalized": true,
+      "byteOffset": 0,
+      "bufferView": 4
+    }
+  ],
   "bufferViews": [
     {
-      "buffer": 0,
-      "byteLength": 1183776,
-      "target": 34963
-    },
-    {
-      "buffer": 0,
-      "byteLength": 620844,
-      "byteOffset": 1183776,
-      "target": 34962
-    },
-    {
-      "buffer": 0,
-      "byteLength": 620844,
-      "byteOffset": 1804620,
-      "target": 34962
-    },
-    {
-      "buffer": 0,
-      "byteLength": 827792,
-      "byteOffset": 2425464,
-      "target": 34962
-    },
-    {
-      "buffer": 0,
-      "byteLength": 413896,
-      "byteOffset": 3253256,
-      "target": 34962
-    }
-  ],
-  "buffers": [
-    {
-      "byteLength": 3667152,
-      "uri": "Untitled.bin"
-    }
-  ],
-  "images": [
-    {
-      "uri": "lambert1_baseColor_1001.png"
-    },
-    {
-      "uri": "lambert1_occlusionRoughnessMetallic_1001.png"
-    },
-    {
-      "uri": "lambert1_normal_1001.png"
-    }
-  ],
-  "materials": [
-    {
-      "alphaMode": "OPAQUE",
-      "name": "lambert1_1001",
-      "normalTexture": {
-        "index": 2
-      },
-      "occlusionTexture": {
-        "index": 1
-      },
-      "pbrMetallicRoughness": {
-        "baseColorTexture": {
-          "index": 0
-        },
-        "metallicRoughnessTexture": {
-          "index": 1
+      "buffer": 1,
+      "byteOffset": 0,
+      "byteLength": 591888,
+      "target": 34963,
+      "extensions": {
+        "EXT_meshopt_compression": {
+          "buffer": 0,
+          "byteOffset": 0,
+          "byteLength": 115765,
+          "mode": "TRIANGLES",
+          "byteStride": 2,
+          "count": 295944
         }
       }
-    }
-  ],
-  "meshes": [
+    },
     {
-      "name": "LOD_2",
-      "primitives": [
-        {
-          "attributes": {
-            "NORMAL": 2,
-            "POSITION": 1,
-            "TANGENT": 3,
-            "TEXCOORD_0": 4
-          },
-          "indices": 0,
-          "material": 0,
-          "mode": 4
+      "buffer": 1,
+      "byteOffset": 591888,
+      "byteLength": 206948,
+      "target": 34962,
+      "byteStride": 4,
+      "extensions": {
+        "EXT_meshopt_compression": {
+          "buffer": 0,
+          "byteOffset": 115768,
+          "byteLength": 106628,
+          "mode": "ATTRIBUTES",
+          "filter": "OCTAHEDRAL",
+          "byteStride": 4,
+          "count": 51737
         }
-      ]
-    }
-  ],
-  "nodes": [
-    {
-      "children": [
-        1
-      ],
-      "name": "RootNode",
-      "scale": [
-        0.00999999977648258,
-        0.00999999977648258,
-        0.00999999977648258
-      ]
+      }
     },
     {
-      "children": [
-        2
-      ],
-      "name": "LOD_2"
+      "buffer": 1,
+      "byteOffset": 798836,
+      "byteLength": 206948,
+      "target": 34962,
+      "byteStride": 4,
+      "extensions": {
+        "EXT_meshopt_compression": {
+          "buffer": 0,
+          "byteOffset": 222396,
+          "byteLength": 107782,
+          "mode": "ATTRIBUTES",
+          "filter": "OCTAHEDRAL",
+          "byteStride": 4,
+          "count": 51737
+        }
+      }
     },
     {
-      "mesh": 0,
-      "name": "LOD_2"
+      "buffer": 1,
+      "byteOffset": 1005784,
+      "byteLength": 413896,
+      "target": 34962,
+      "byteStride": 8,
+      "extensions": {
+        "EXT_meshopt_compression": {
+          "buffer": 0,
+          "byteOffset": 330180,
+          "byteLength": 221592,
+          "mode": "ATTRIBUTES",
+          "byteStride": 8,
+          "count": 51737
+        }
+      }
+    },
+    {
+      "buffer": 1,
+      "byteOffset": 1419680,
+      "byteLength": 206948,
+      "target": 34962,
+      "byteStride": 4,
+      "extensions": {
+        "EXT_meshopt_compression": {
+          "buffer": 0,
+          "byteOffset": 551772,
+          "byteLength": 134680,
+          "mode": "ATTRIBUTES",
+          "byteStride": 4,
+          "count": 51737
+        }
+      }
     }
   ],
   "samplers": [
@@ -162,7 +151,130 @@
       "wrapT": 10497
     }
   ],
-  "scene": 0,
+  "textures": [
+    {
+      "sampler": 0,
+      "extensions": {
+        "EXT_texture_webp": {
+          "source": 0
+        }
+      }
+    },
+    {
+      "sampler": 0,
+      "extensions": {
+        "EXT_texture_webp": {
+          "source": 2
+        }
+      }
+    },
+    {
+      "sampler": 0,
+      "extensions": {
+        "EXT_texture_webp": {
+          "source": 1
+        }
+      }
+    }
+  ],
+  "images": [
+    {
+      "mimeType": "image/webp",
+      "uri": "lambert1_baseColor_1001.webp"
+    },
+    {
+      "mimeType": "image/webp",
+      "uri": "lambert1_occlusionRoughnessMetallic_1001.webp"
+    },
+    {
+      "mimeType": "image/webp",
+      "uri": "lambert1_normal_1001.webp"
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "Untitled.bin",
+      "byteLength": 686452
+    },
+    {
+      "byteLength": 1626628,
+      "extensions": {
+        "EXT_meshopt_compression": {
+          "fallback": true
+        }
+      }
+    }
+  ],
+  "materials": [
+    {
+      "name": "lambert1_1001",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 2
+        }
+      },
+      "normalTexture": {
+        "index": 1
+      },
+      "occlusionTexture": {
+        "index": 2
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "LOD_2",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "POSITION": 3,
+            "TEXCOORD_0": 4
+          },
+          "mode": 4,
+          "material": 0,
+          "indices": 0
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "name": "RootNode",
+      "scale": [
+        0.00999999977648258,
+        0.00999999977648258,
+        0.00999999977648258
+      ],
+      "children": [
+        1
+      ]
+    },
+    {
+      "name": "LOD_2",
+      "children": [
+        2
+      ]
+    },
+    {
+      "name": "LOD_2",
+      "translation": [
+        0,
+        0,
+        0.04784931428730488
+      ],
+      "scale": [
+        0.6750000715255737,
+        0.6750000715255737,
+        0.6750000715255737
+      ],
+      "mesh": 0
+    }
+  ],
   "scenes": [
     {
       "name": "Scene",
@@ -171,18 +283,15 @@
       ]
     }
   ],
-  "textures": [
-    {
-      "sampler": 0,
-      "source": 0
-    },
-    {
-      "sampler": 0,
-      "source": 1
-    },
-    {
-      "sampler": 0,
-      "source": 2
-    }
+  "scene": 0,
+  "extensionsUsed": [
+    "EXT_meshopt_compression",
+    "EXT_texture_webp",
+    "KHR_mesh_quantization"
+  ],
+  "extensionsRequired": [
+    "EXT_meshopt_compression",
+    "EXT_texture_webp",
+    "KHR_mesh_quantization"
   ]
 }
