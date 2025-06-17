@@ -65,7 +65,7 @@
         "EXT_meshopt_compression": {
           "buffer": 0,
           "byteOffset": 0,
-          "byteLength": 343768,
+          "byteLength": 344760,
           "mode": "TRIANGLES",
           "byteStride": 4,
           "count": 898650
@@ -81,8 +81,8 @@
       "extensions": {
         "EXT_meshopt_compression": {
           "buffer": 0,
-          "byteOffset": 343768,
-          "byteLength": 310972,
+          "byteOffset": 344760,
+          "byteLength": 310920,
           "mode": "ATTRIBUTES",
           "filter": "OCTAHEDRAL",
           "byteStride": 4,
@@ -99,8 +99,8 @@
       "extensions": {
         "EXT_meshopt_compression": {
           "buffer": 0,
-          "byteOffset": 654740,
-          "byteLength": 309385,
+          "byteOffset": 655680,
+          "byteLength": 309062,
           "mode": "ATTRIBUTES",
           "filter": "OCTAHEDRAL",
           "byteStride": 4,
@@ -117,8 +117,8 @@
       "extensions": {
         "EXT_meshopt_compression": {
           "buffer": 0,
-          "byteOffset": 964128,
-          "byteLength": 583329,
+          "byteOffset": 964744,
+          "byteLength": 574412,
           "mode": "ATTRIBUTES",
           "byteStride": 8,
           "count": 150977
@@ -134,8 +134,8 @@
       "extensions": {
         "EXT_meshopt_compression": {
           "buffer": 0,
-          "byteOffset": 1547460,
-          "byteLength": 359322,
+          "byteOffset": 1539156,
+          "byteLength": 349950,
           "mode": "ATTRIBUTES",
           "byteStride": 4,
           "count": 150977
@@ -194,7 +194,7 @@
   "buffers": [
     {
       "uri": "Untitled.bin",
-      "byteLength": 1906784
+      "byteLength": 1889108
     },
     {
       "byteLength": 6614140,
