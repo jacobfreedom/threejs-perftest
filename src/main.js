@@ -15,10 +15,10 @@ const LOD_PATHS = {
 };
 
 const NORMAL_MAP_PATHS = {
-  lod1: '/lod1/lambert1_normal_1001.png',
-  lod2: '/lod2/lambert1_normal_1001.png',
-  lod3: '/lod3/lambert1_normal_1001.png',
-  lod4: '/lod4/lambert1_normal_1001.png',
+  lod1: '/lod1/lambert1_normal_1001.webp',
+  lod2: '/lod2/lambert1_normal_1001.webp',
+  lod3: '/lod3/lambert1_normal_1001.webp',
+  lod4: '/lod4/lambert1_normal_1001.webp',
 };
 
 // Global scene variables

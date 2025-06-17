@@ -83,8 +83,12 @@
       }
     },
     {
-      "source": 2,
-      "sampler": 0
+      "sampler": 0,
+      "extensions": {
+        "EXT_texture_webp": {
+          "source": 2
+        }
+      }
     },
     {
       "sampler": 0,
@@ -105,8 +109,8 @@
       "uri": "lambert1_occlusionRoughnessMetallic_1001.ktx2"
     },
     {
-      "mimeType": "image/png",
-      "uri": "lambert1_normal_1001.png"
+      "mimeType": "image/webp",
+      "uri": "lambert1_normal_1001.webp"
     }
   ],
   "buffers": [
@@ -185,9 +189,11 @@
   ],
   "scene": 0,
   "extensionsUsed": [
+    "EXT_texture_webp",
     "KHR_texture_basisu"
   ],
   "extensionsRequired": [
+    "EXT_texture_webp",
     "KHR_texture_basisu"
   ]
 }
