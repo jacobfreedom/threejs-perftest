@@ -36,7 +36,7 @@ let performanceMonitor = {
   lastUpdateTime: 0
 };
 
-function init() {
+async function init() {
   scene = new THREE.Scene();
   scene.background = new THREE.Color(0x111111);
 
@@ -60,38 +60,60 @@ function init() {
   stats = new Stats();
   document.body.appendChild(stats.dom);
   setupGUI();
-  updateEnvironmentMap();
-  loadLODs();
+  
+  // First load the environment map
+  await updateEnvironmentMap();
+  
+  // Then load LODs with priority on lod1
+  await loadLODs();
+  
   window.addEventListener('resize', onWindowResize, false);
 }
 
 // Async LOD loading
 async function loadLODs() {
   const loader = new GLTFLoader();
-
   const textureLoader = new THREE.TextureLoader();
 
-  const loadPromises = Object.keys(LOD_PATHS).map(async (lodKey) => {
-    return new Promise((resolve, reject) => {
-      loader.load(LOD_PATHS[lodKey], (gltf) => {
+  // First load lod1 with its normal map
+  try {
+    await new Promise((resolve, reject) => {
+      loader.load(LOD_PATHS.lod1, (gltf) => {
         gltf.scene.traverse((child) => {
           if (child.isMesh) {
-            lods[lodKey] = child;
+            lods.lod1 = child;
           }
         });
 
-        textureLoader.load(NORMAL_MAP_PATHS[lodKey], (normalMap) => {
+        textureLoader.load(NORMAL_MAP_PATHS.lod1, (normalMap) => {
           normalMap.encoding = THREE.LinearEncoding;
-          normalMaps[lodKey] = normalMap;
+          normalMaps.lod1 = normalMap;
           resolve();
         }, undefined, reject);
       }, undefined, reject);
     });
-  });
 
-  try {
-    await Promise.all(loadPromises);
+    // Now we can show the model while loading the rest
     onAllLODsLoaded();
+
+    // Sequentially load remaining LODs
+    for (const lodKey of ['lod2', 'lod3', 'lod4']) {
+      await new Promise((resolve, reject) => {
+        loader.load(LOD_PATHS[lodKey], (gltf) => {
+          gltf.scene.traverse((child) => {
+            if (child.isMesh) {
+              lods[lodKey] = child;
+            }
+          });
+
+          textureLoader.load(NORMAL_MAP_PATHS[lodKey], (normalMap) => {
+            normalMap.encoding = THREE.LinearEncoding;
+            normalMaps[lodKey] = normalMap;
+            resolve();
+          }, undefined, reject);
+        }, undefined, reject);
+      });
+    }
   } catch (error) {
     console.error('Error loading LODs:', error);
   }
@@ -276,12 +298,12 @@ function initializeAppControls() {
       clearcoatRoughness: 0.0,
       transmission: 0.0,
       thickness: 0.0,
-      ior: 1.5,
-      reflectivity: 0.5,
+      ior: 0.0,
+      reflectivity: 0.0,
       sheen: 0.0,
-      sheenRoughness: 1.0,
+      sheenRoughness: 0.0,
       sheenColor: 0x000000,
-      specularIntensity: 1.0,
+      specularIntensity: 0.0,
       specularColor: 0xffffff,
       iridescence: 0.0,
       iridescenceIOR: 1.3,
@@ -416,40 +438,47 @@ function updateShadowResolution(resolution) {
 init();
 
 function updateEnvironmentMap(forceUpdate = false) {
-  if (!appControls || !appControls.environment) return;
-  
-  // Cache environment maps to avoid reloading the same textures
-  if (!window.environmentMapCache) {
-    window.environmentMapCache = {};
-  }
-  
-  const pmremGenerator = new THREE.PMREMGenerator(renderer);
-  pmremGenerator.compileEquirectangularShader();
+  return new Promise((resolve, reject) => {
+    if (!appControls || !appControls.environment) {
+      resolve();
+      return;
+    }
+    
+    // Cache environment maps to avoid reloading the same textures
+    if (!window.environmentMapCache) {
+      window.environmentMapCache = {};
+    }
+    
+    const pmremGenerator = new THREE.PMREMGenerator(renderer);
+    pmremGenerator.compileEquirectangularShader();
 
-  const envMapPath = appControls.environment.envMap;
-  
-  // Check if this environment map is already cached
-  if (window.environmentMapCache[envMapPath] && !forceUpdate) {
-    scene.environment = window.environmentMapCache[envMapPath];
-        scene.environmentIntensity = appControls.environment.envMapIntensity;
-        scene.background = appControls.environment.useBackgroundAsEnv ? scene.environment : new THREE.Color(0x111111);
-  } else {
-    // Load new environment map
-    new RGBELoader()
-      .setPath('/env/')
-      .load(envMapPath, function (texture) {
-        const envMap = pmremGenerator.fromEquirectangular(texture).texture;
-        
-        // Cache for future use
-        window.environmentMapCache[envMapPath] = envMap;
-        
-        scene.environment = envMap;
-        scene.environmentIntensity = appControls.environment.envMapIntensity;
-        scene.background = appControls.environment.useBackgroundAsEnv ? scene.environment : new THREE.Color(0x111111);
-        texture.dispose();
-        pmremGenerator.dispose();
-      });
-  }
+    const envMapPath = appControls.environment.envMap;
+    
+    // Check if this environment map is already cached
+    if (window.environmentMapCache[envMapPath] && !forceUpdate) {
+      scene.environment = window.environmentMapCache[envMapPath];
+      scene.environmentIntensity = appControls.environment.envMapIntensity;
+      scene.background = appControls.environment.useBackgroundAsEnv ? scene.environment : new THREE.Color(0x111111);
+      resolve();
+    } else {
+      // Load new environment map
+      new RGBELoader()
+        .setPath('/env/')
+        .load(envMapPath, function (texture) {
+          const envMap = pmremGenerator.fromEquirectangular(texture).texture;
+          
+          // Cache for future use
+          window.environmentMapCache[envMapPath] = envMap;
+          
+          scene.environment = envMap;
+          scene.environmentIntensity = appControls.environment.envMapIntensity;
+          scene.background = appControls.environment.useBackgroundAsEnv ? scene.environment : new THREE.Color(0x111111);
+          texture.dispose();
+          pmremGenerator.dispose();
+          resolve();
+        }, undefined, reject);
+    }
+  });
 }
 
 function setupGUI() {
