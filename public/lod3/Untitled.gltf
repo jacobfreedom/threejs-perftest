@@ -7,7 +7,7 @@
     {
       "type": "SCALAR",
       "componentType": 5123,
-      "count": 115134,
+      "count": 114711,
       "normalized": false,
       "byteOffset": 0,
       "bufferView": 0
@@ -15,7 +15,7 @@
     {
       "type": "VEC3",
       "componentType": 5120,
-      "count": 20983,
+      "count": 20851,
       "normalized": true,
       "byteOffset": 0,
       "bufferView": 1
@@ -23,7 +23,7 @@
     {
       "type": "VEC4",
       "componentType": 5120,
-      "count": 20983,
+      "count": 20851,
       "normalized": true,
       "byteOffset": 0,
       "bufferView": 2
@@ -31,7 +31,7 @@
     {
       "type": "VEC3",
       "componentType": 5122,
-      "count": 20983,
+      "count": 20851,
       "max": [
         26215,
         32767,
@@ -49,7 +49,7 @@
     {
       "type": "VEC2",
       "componentType": 5123,
-      "count": 20983,
+      "count": 20851,
       "normalized": true,
       "byteOffset": 0,
       "bufferView": 4
@@ -59,86 +59,86 @@
     {
       "buffer": 1,
       "byteOffset": 0,
-      "byteLength": 230268,
+      "byteLength": 229422,
       "target": 34963,
       "extensions": {
         "EXT_meshopt_compression": {
           "buffer": 0,
           "byteOffset": 0,
-          "byteLength": 45089,
+          "byteLength": 44910,
           "mode": "TRIANGLES",
           "byteStride": 2,
-          "count": 115134
+          "count": 114711
         }
       }
     },
     {
       "buffer": 1,
-      "byteOffset": 230268,
-      "byteLength": 83932,
+      "byteOffset": 229424,
+      "byteLength": 83404,
       "target": 34962,
       "byteStride": 4,
       "extensions": {
         "EXT_meshopt_compression": {
           "buffer": 0,
-          "byteOffset": 45092,
-          "byteLength": 43202,
+          "byteOffset": 44912,
+          "byteLength": 43023,
           "mode": "ATTRIBUTES",
           "filter": "OCTAHEDRAL",
           "byteStride": 4,
-          "count": 20983
+          "count": 20851
         }
       }
     },
     {
       "buffer": 1,
-      "byteOffset": 314200,
-      "byteLength": 83932,
+      "byteOffset": 312828,
+      "byteLength": 83404,
       "target": 34962,
       "byteStride": 4,
       "extensions": {
         "EXT_meshopt_compression": {
           "buffer": 0,
-          "byteOffset": 88296,
-          "byteLength": 44234,
+          "byteOffset": 87936,
+          "byteLength": 43988,
           "mode": "ATTRIBUTES",
           "filter": "OCTAHEDRAL",
           "byteStride": 4,
-          "count": 20983
+          "count": 20851
         }
       }
     },
     {
       "buffer": 1,
-      "byteOffset": 398132,
-      "byteLength": 167864,
+      "byteOffset": 396232,
+      "byteLength": 166808,
       "target": 34962,
       "byteStride": 8,
       "extensions": {
         "EXT_meshopt_compression": {
           "buffer": 0,
-          "byteOffset": 132532,
-          "byteLength": 95700,
+          "byteOffset": 131924,
+          "byteLength": 95222,
           "mode": "ATTRIBUTES",
           "byteStride": 8,
-          "count": 20983
+          "count": 20851
         }
       }
     },
     {
       "buffer": 1,
-      "byteOffset": 565996,
-      "byteLength": 83932,
+      "byteOffset": 563040,
+      "byteLength": 83404,
       "target": 34962,
       "byteStride": 4,
       "extensions": {
         "EXT_meshopt_compression": {
           "buffer": 0,
-          "byteOffset": 228232,
-          "byteLength": 58111,
+          "byteOffset": 227148,
+          "byteLength": 57711,
           "mode": "ATTRIBUTES",
           "byteStride": 4,
-          "count": 20983
+          "count": 20851
         }
       }
     }
@@ -194,10 +194,10 @@
   "buffers": [
     {
       "uri": "Untitled.bin",
-      "byteLength": 286344
+      "byteLength": 284860
     },
     {
-      "byteLength": 649928,
+      "byteLength": 646444,
       "extensions": {
         "EXT_meshopt_compression": {
           "fallback": true
@@ -244,33 +244,16 @@
   ],
   "nodes": [
     {
-      "name": "RootNode",
-      "scale": [
-        0.00999999977648258,
-        0.00999999977648258,
-        0.00999999977648258
-      ],
-      "children": [
-        1
-      ]
-    },
-    {
-      "name": "LOD_3",
-      "children": [
-        2
-      ]
-    },
-    {
       "name": "LOD_3",
       "translation": [
         0,
         0,
-        0.04784936644136906
+        0.0004784936537185236
       ],
       "scale": [
-        0.6750000715255737,
-        0.6750000715255737,
-        0.6750000715255737
+        0.006750000564381463,
+        0.006750000564381463,
+        0.006750000564381463
       ],
       "mesh": 0
     }
