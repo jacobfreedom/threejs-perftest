@@ -15,10 +15,10 @@ const LOD_PATHS = {
 };
 
 const NORMAL_MAP_PATHS = {
-  lod1: '/lod1/lambert1_normal_1001.ktx2',
-  lod2: '/lod2/lambert1_normal_1001.ktx2',
-  lod3: '/lod3/lambert1_normal_1001.ktx2',
-  lod4: '/lod4/lambert1_normal_1001.ktx2',
+  lod1: '/lod1/lambert1_normal_1001.png',
+  lod2: '/lod2/lambert1_normal_1001.png',
+  lod3: '/lod3/lambert1_normal_1001.png',
+  lod4: '/lod4/lambert1_normal_1001.png',
 };
 
 // Global scene variables
@@ -77,9 +77,11 @@ async function init() {
 // Async LOD loading
 async function loadLODs() {
   const loader = new GLTFLoader();
+  const textureLoader = new THREE.TextureLoader();
   const ktx2Loader = new KTX2Loader()
-    .setTranscoderPath( 'libs/basis/' )
-    .detectSupport( renderer );
+  .setTranscoderPath( 'libs/basis/' )
+  .detectSupport( renderer );
+
 
   loader.setMeshoptDecoder( MeshoptDecoder );
   loader.setKTX2Loader( ktx2Loader );
@@ -94,7 +96,7 @@ async function loadLODs() {
           }
         });
 
-        ktx2Loader.load(NORMAL_MAP_PATHS.lod1, (normalMap) => {
+        textureLoader.load(NORMAL_MAP_PATHS.lod1, (normalMap) => {
           normalMap.encoding = THREE.LinearEncoding;
           normalMaps.lod1 = normalMap;
           resolve();
@@ -115,7 +117,7 @@ async function loadLODs() {
             }
           });
 
-          ktx2Loader.load(NORMAL_MAP_PATHS[lodKey], (normalMap) => {
+          textureLoader.load(NORMAL_MAP_PATHS[lodKey], (normalMap) => {
             normalMap.encoding = THREE.LinearEncoding;
             normalMaps[lodKey] = normalMap;
             resolve();
