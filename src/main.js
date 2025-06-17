@@ -49,13 +49,15 @@ async function init() {
   renderer.setSize(window.innerWidth, window.innerHeight);
   document.body.appendChild(renderer.domElement);
 
+  initializeAppControls();
+
+  renderer.setPixelRatio(appControls.general.dpr);
+
   controls = new OrbitControls(camera, renderer.domElement);
   controls.enableDamping = true;
   controls.dampingFactor = 0.25;
   controls.screenSpacePanning = false;
   controls.maxPolarAngle = Math.PI / 2;
-
-  initializeAppControls();
   setupLights();
   stats = new Stats();
   document.body.appendChild(stats.dom);
@@ -234,6 +236,7 @@ function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(appControls.general.dpr);
 }
 
 function animate() {
@@ -329,7 +332,8 @@ function initializeAppControls() {
     // General scene settings
     general: {
         rotatePlane: false,
-        doubleSided: true
+        doubleSided: true,
+        dpr: 1.5
     }
   };
 }
@@ -518,8 +522,9 @@ function setupWireframeGUI(gui, wireframeCtrl) {
 }
 
 function setupGeneralSettingsGUI(gui, generalCtrl) {
-    gui.add(generalCtrl, 'rotatePlane').name('Rotate Plane');
-    gui.add(generalCtrl, 'doubleSided').name('Double Sided').onChange((value) => {
+    const generalFolder = gui.addFolder('General Settings');
+    generalFolder.add(generalCtrl, 'rotatePlane').name('Rotate Plane');
+    generalFolder.add(generalCtrl, 'doubleSided').name('Double Sided').onChange((value) => {
         if (model) {
             model.traverse((child) => {
                 if (child.isMesh && child.material instanceof THREE.MeshPhysicalMaterial) {
@@ -529,6 +534,11 @@ function setupGeneralSettingsGUI(gui, generalCtrl) {
             });
         }
     });
+    generalFolder.add(generalCtrl, 'dpr', 1, 2, 0.5).name('Device Pixel Ratio').onChange((value) => {
+        renderer.setPixelRatio(value);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+    generalFolder.open();
 }
 
 function setupEnvironmentGUI(gui, environmentCtrl) {
