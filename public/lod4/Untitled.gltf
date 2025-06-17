@@ -7,7 +7,7 @@
     {
       "type": "SCALAR",
       "componentType": 5123,
-      "count": 54465,
+      "count": 54864,
       "normalized": false,
       "byteOffset": 0,
       "bufferView": 0
@@ -15,7 +15,7 @@
     {
       "type": "VEC3",
       "componentType": 5120,
-      "count": 10401,
+      "count": 10528,
       "normalized": true,
       "byteOffset": 0,
       "bufferView": 1
@@ -23,7 +23,7 @@
     {
       "type": "VEC4",
       "componentType": 5120,
-      "count": 10401,
+      "count": 10528,
       "normalized": true,
       "byteOffset": 0,
       "bufferView": 2
@@ -31,7 +31,7 @@
     {
       "type": "VEC3",
       "componentType": 5122,
-      "count": 10401,
+      "count": 10528,
       "max": [
         26215,
         32767,
@@ -49,7 +49,7 @@
     {
       "type": "VEC2",
       "componentType": 5123,
-      "count": 10401,
+      "count": 10528,
       "normalized": true,
       "byteOffset": 0,
       "bufferView": 4
@@ -59,86 +59,86 @@
     {
       "buffer": 1,
       "byteOffset": 0,
-      "byteLength": 108930,
+      "byteLength": 109728,
       "target": 34963,
       "extensions": {
         "EXT_meshopt_compression": {
           "buffer": 0,
           "byteOffset": 0,
-          "byteLength": 21296,
+          "byteLength": 21390,
           "mode": "TRIANGLES",
           "byteStride": 2,
-          "count": 54465
+          "count": 54864
         }
       }
     },
     {
       "buffer": 1,
-      "byteOffset": 108932,
-      "byteLength": 41604,
+      "byteOffset": 109728,
+      "byteLength": 42112,
       "target": 34962,
       "byteStride": 4,
       "extensions": {
         "EXT_meshopt_compression": {
           "buffer": 0,
-          "byteOffset": 21296,
-          "byteLength": 21466,
+          "byteOffset": 21392,
+          "byteLength": 21653,
           "mode": "ATTRIBUTES",
           "filter": "OCTAHEDRAL",
           "byteStride": 4,
-          "count": 10401
+          "count": 10528
         }
       }
     },
     {
       "buffer": 1,
-      "byteOffset": 150536,
-      "byteLength": 41604,
+      "byteOffset": 151840,
+      "byteLength": 42112,
       "target": 34962,
       "byteStride": 4,
       "extensions": {
         "EXT_meshopt_compression": {
           "buffer": 0,
-          "byteOffset": 42764,
-          "byteLength": 22369,
+          "byteOffset": 43048,
+          "byteLength": 22678,
           "mode": "ATTRIBUTES",
           "filter": "OCTAHEDRAL",
           "byteStride": 4,
-          "count": 10401
+          "count": 10528
         }
       }
     },
     {
       "buffer": 1,
-      "byteOffset": 192140,
-      "byteLength": 83208,
+      "byteOffset": 193952,
+      "byteLength": 84224,
       "target": 34962,
       "byteStride": 8,
       "extensions": {
         "EXT_meshopt_compression": {
           "buffer": 0,
-          "byteOffset": 65136,
-          "byteLength": 47413,
+          "byteOffset": 65728,
+          "byteLength": 47729,
           "mode": "ATTRIBUTES",
           "byteStride": 8,
-          "count": 10401
+          "count": 10528
         }
       }
     },
     {
       "buffer": 1,
-      "byteOffset": 275348,
-      "byteLength": 41604,
+      "byteOffset": 278176,
+      "byteLength": 42112,
       "target": 34962,
       "byteStride": 4,
       "extensions": {
         "EXT_meshopt_compression": {
           "buffer": 0,
-          "byteOffset": 112552,
-          "byteLength": 28919,
+          "byteOffset": 113460,
+          "byteLength": 29057,
           "mode": "ATTRIBUTES",
           "byteStride": 4,
-          "count": 10401
+          "count": 10528
         }
       }
     }
@@ -155,7 +155,7 @@
     {
       "sampler": 0,
       "extensions": {
-        "EXT_texture_webp": {
+        "KHR_texture_basisu": {
           "source": 0
         }
       }
@@ -163,7 +163,7 @@
     {
       "sampler": 0,
       "extensions": {
-        "EXT_texture_webp": {
+        "KHR_texture_basisu": {
           "source": 2
         }
       }
@@ -171,7 +171,7 @@
     {
       "sampler": 0,
       "extensions": {
-        "EXT_texture_webp": {
+        "KHR_texture_basisu": {
           "source": 1
         }
       }
@@ -179,25 +179,25 @@
   ],
   "images": [
     {
-      "mimeType": "image/webp",
-      "uri": "lambert1_baseColor_1001.webp"
+      "mimeType": "image/ktx2",
+      "uri": "lambert1_baseColor_1001.ktx2"
     },
     {
-      "mimeType": "image/webp",
-      "uri": "lambert1_occlusionRoughnessMetallic_1001.webp"
+      "mimeType": "image/ktx2",
+      "uri": "lambert1_occlusionRoughnessMetallic_1001.ktx2"
     },
     {
-      "mimeType": "image/webp",
-      "uri": "lambert1_normal_1001.webp"
+      "mimeType": "image/ktx2",
+      "uri": "lambert1_normal_1001.ktx2"
     }
   ],
   "buffers": [
     {
       "uri": "Untitled.bin",
-      "byteLength": 141472
+      "byteLength": 142520
     },
     {
-      "byteLength": 316952,
+      "byteLength": 320288,
       "extensions": {
         "EXT_meshopt_compression": {
           "fallback": true
@@ -244,16 +244,33 @@
   ],
   "nodes": [
     {
+      "name": "RootNode",
+      "scale": [
+        0.00999999977648258,
+        0.00999999977648258,
+        0.00999999977648258
+      ],
+      "children": [
+        1
+      ]
+    },
+    {
+      "name": "LOD_4",
+      "children": [
+        2
+      ]
+    },
+    {
       "name": "LOD_4",
       "translation": [
         0,
         0,
-        0.0004648821697037924
+        0.04648821800947189
       ],
       "scale": [
-        0.006750000564381463,
-        0.006750000564381463,
-        0.006750000564381463
+        0.6750000715255737,
+        0.6750000715255737,
+        0.6750000715255737
       ],
       "mesh": 0
     }
@@ -269,12 +286,12 @@
   "scene": 0,
   "extensionsUsed": [
     "EXT_meshopt_compression",
-    "EXT_texture_webp",
-    "KHR_mesh_quantization"
+    "KHR_mesh_quantization",
+    "KHR_texture_basisu"
   ],
   "extensionsRequired": [
     "EXT_meshopt_compression",
-    "EXT_texture_webp",
-    "KHR_mesh_quantization"
+    "KHR_mesh_quantization",
+    "KHR_texture_basisu"
   ]
 }

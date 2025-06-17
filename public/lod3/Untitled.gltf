@@ -7,7 +7,7 @@
     {
       "type": "SCALAR",
       "componentType": 5123,
-      "count": 114711,
+      "count": 115134,
       "normalized": false,
       "byteOffset": 0,
       "bufferView": 0
@@ -15,7 +15,7 @@
     {
       "type": "VEC3",
       "componentType": 5120,
-      "count": 20851,
+      "count": 20983,
       "normalized": true,
       "byteOffset": 0,
       "bufferView": 1
@@ -23,7 +23,7 @@
     {
       "type": "VEC4",
       "componentType": 5120,
-      "count": 20851,
+      "count": 20983,
       "normalized": true,
       "byteOffset": 0,
       "bufferView": 2
@@ -31,7 +31,7 @@
     {
       "type": "VEC3",
       "componentType": 5122,
-      "count": 20851,
+      "count": 20983,
       "max": [
         26215,
         32767,
@@ -49,7 +49,7 @@
     {
       "type": "VEC2",
       "componentType": 5123,
-      "count": 20851,
+      "count": 20983,
       "normalized": true,
       "byteOffset": 0,
       "bufferView": 4
@@ -59,86 +59,86 @@
     {
       "buffer": 1,
       "byteOffset": 0,
-      "byteLength": 229422,
+      "byteLength": 230268,
       "target": 34963,
       "extensions": {
         "EXT_meshopt_compression": {
           "buffer": 0,
           "byteOffset": 0,
-          "byteLength": 44910,
+          "byteLength": 45121,
           "mode": "TRIANGLES",
           "byteStride": 2,
-          "count": 114711
+          "count": 115134
         }
       }
     },
     {
       "buffer": 1,
-      "byteOffset": 229424,
-      "byteLength": 83404,
+      "byteOffset": 230268,
+      "byteLength": 83932,
       "target": 34962,
       "byteStride": 4,
       "extensions": {
         "EXT_meshopt_compression": {
           "buffer": 0,
-          "byteOffset": 44912,
-          "byteLength": 43023,
+          "byteOffset": 45124,
+          "byteLength": 43208,
           "mode": "ATTRIBUTES",
           "filter": "OCTAHEDRAL",
           "byteStride": 4,
-          "count": 20851
+          "count": 20983
         }
       }
     },
     {
       "buffer": 1,
-      "byteOffset": 312828,
-      "byteLength": 83404,
+      "byteOffset": 314200,
+      "byteLength": 83932,
       "target": 34962,
       "byteStride": 4,
       "extensions": {
         "EXT_meshopt_compression": {
           "buffer": 0,
-          "byteOffset": 87936,
-          "byteLength": 43988,
+          "byteOffset": 88332,
+          "byteLength": 44479,
           "mode": "ATTRIBUTES",
           "filter": "OCTAHEDRAL",
           "byteStride": 4,
-          "count": 20851
+          "count": 20983
         }
       }
     },
     {
       "buffer": 1,
-      "byteOffset": 396232,
-      "byteLength": 166808,
+      "byteOffset": 398132,
+      "byteLength": 167864,
       "target": 34962,
       "byteStride": 8,
       "extensions": {
         "EXT_meshopt_compression": {
           "buffer": 0,
-          "byteOffset": 131924,
-          "byteLength": 95222,
+          "byteOffset": 132812,
+          "byteLength": 95699,
           "mode": "ATTRIBUTES",
           "byteStride": 8,
-          "count": 20851
+          "count": 20983
         }
       }
     },
     {
       "buffer": 1,
-      "byteOffset": 563040,
-      "byteLength": 83404,
+      "byteOffset": 565996,
+      "byteLength": 83932,
       "target": 34962,
       "byteStride": 4,
       "extensions": {
         "EXT_meshopt_compression": {
           "buffer": 0,
-          "byteOffset": 227148,
-          "byteLength": 57711,
+          "byteOffset": 228512,
+          "byteLength": 58034,
           "mode": "ATTRIBUTES",
           "byteStride": 4,
-          "count": 20851
+          "count": 20983
         }
       }
     }
@@ -155,7 +155,7 @@
     {
       "sampler": 0,
       "extensions": {
-        "EXT_texture_webp": {
+        "KHR_texture_basisu": {
           "source": 0
         }
       }
@@ -163,7 +163,7 @@
     {
       "sampler": 0,
       "extensions": {
-        "EXT_texture_webp": {
+        "KHR_texture_basisu": {
           "source": 2
         }
       }
@@ -171,7 +171,7 @@
     {
       "sampler": 0,
       "extensions": {
-        "EXT_texture_webp": {
+        "KHR_texture_basisu": {
           "source": 1
         }
       }
@@ -179,25 +179,25 @@
   ],
   "images": [
     {
-      "mimeType": "image/webp",
-      "uri": "lambert1_baseColor_1001.webp"
+      "mimeType": "image/ktx2",
+      "uri": "lambert1_baseColor_1001.ktx2"
     },
     {
-      "mimeType": "image/webp",
-      "uri": "lambert1_occlusionRoughnessMetallic_1001.webp"
+      "mimeType": "image/ktx2",
+      "uri": "lambert1_occlusionRoughnessMetallic_1001.ktx2"
     },
     {
-      "mimeType": "image/webp",
-      "uri": "lambert1_normal_1001.webp"
+      "mimeType": "image/ktx2",
+      "uri": "lambert1_normal_1001.ktx2"
     }
   ],
   "buffers": [
     {
       "uri": "Untitled.bin",
-      "byteLength": 284860
+      "byteLength": 286548
     },
     {
-      "byteLength": 646444,
+      "byteLength": 649928,
       "extensions": {
         "EXT_meshopt_compression": {
           "fallback": true
@@ -244,16 +244,33 @@
   ],
   "nodes": [
     {
+      "name": "RootNode",
+      "scale": [
+        0.00999999977648258,
+        0.00999999977648258,
+        0.00999999977648258
+      ],
+      "children": [
+        1
+      ]
+    },
+    {
+      "name": "LOD_3",
+      "children": [
+        2
+      ]
+    },
+    {
       "name": "LOD_3",
       "translation": [
         0,
         0,
-        0.0004784936537185236
+        0.04784936644136906
       ],
       "scale": [
-        0.006750000564381463,
-        0.006750000564381463,
-        0.006750000564381463
+        0.6750000715255737,
+        0.6750000715255737,
+        0.6750000715255737
       ],
       "mesh": 0
     }
@@ -269,12 +286,12 @@
   "scene": 0,
   "extensionsUsed": [
     "EXT_meshopt_compression",
-    "EXT_texture_webp",
-    "KHR_mesh_quantization"
+    "KHR_mesh_quantization",
+    "KHR_texture_basisu"
   ],
   "extensionsRequired": [
     "EXT_meshopt_compression",
-    "EXT_texture_webp",
-    "KHR_mesh_quantization"
+    "KHR_mesh_quantization",
+    "KHR_texture_basisu"
   ]
 }
