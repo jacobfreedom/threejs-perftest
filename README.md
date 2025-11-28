@@ -38,7 +38,8 @@ Dependencies from `package.json`:
 ## Texture Optimization
 - All original textures (especially PNGs) are preserved under `public/lod*/`.
 - Optimized textures are produced with KTX v2 using `toktx`. Reference: https://github.com/KhronosGroup/KTX-Software
- - PNG→WebP conversions were created using Sharp (libvips). Reference: https://sharp.pixelplumbing.com/
+- PNG→WebP conversions were created using Sharp (libvips). Reference: https://sharp.pixelplumbing.com/
+- Itterative downscalling and texture quality tool. Reference: https://github.com/jacobfreedom/vh-calculation-fix
 
 ## Texture Baking Process
 - For testing and target look evaluation, per-LOD baking in Substance Painter was explored using specific low-poly versions.
