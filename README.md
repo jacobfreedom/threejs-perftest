@@ -55,8 +55,6 @@ Dependencies from `package.json`:
 - Geometry created in Maya using displacement baked to static geometry.
 - Multiple LODs are included for testing: `public/lod1/`, `public/lod2/`, `public/lod3/`, `public/lod4/`. Each glTF contains quantized attributes and meshopt-compressed buffers.
 - Materials authored in Substance Painter; exported maps are packed for AORM in KTX2 and normals in WebP.
-- Visual reference:
-  ![Keep biting](public/img/keep-biting-gif.gif)
 
 ## Arnold Displacement Reference
 - The reference showcases an Arnold displacement map that was converted into static geometry.
