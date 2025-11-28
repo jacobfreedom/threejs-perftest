@@ -107,9 +107,9 @@ Dependencies from `package.json`:
 - Additions should preserve original assets (PNGs/WebPs) and document optimization steps.
 - For new features, include performance notes and LOD impact.
 
-## Credits
+## Tools
 - Geometry: Maya (displacement baked to static geometry).
-- Materials: Substance Painter.
+- Materials & glTF export: Substance Painter.
 - Environment maps: Poly Haven.
 - Texture optimization: `toktx` from KTX-Software.
 - Model optimization: glTF-Transform.
