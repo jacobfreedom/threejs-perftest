@@ -2,6 +2,10 @@
 
 An open-source library for material trait/lookdev testing and performance evaluation with Three.js. This project demonstrates LOD switching, modern texture formats (KTX2/BasisU and WebP), environment lighting, and mesh optimizations suitable for realtime and web delivery.
 
+## Live Demo
+- https://threejs-perftest.vercel.app/
+
+
 ## Overview
 - Focus: Evaluate material behaviors, maps, and shading traits across LODs while measuring performance.
 - Rendering: Three.js, `MeshPhysicalMaterial`, PMREM-processed HDR environment lighting.
