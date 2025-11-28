@@ -73,25 +73,8 @@ Dependencies from `package.json`:
     : null;
   ```
 
-### Troubleshooting
-- Verify LOD2 textures exist: `public/lod2/lambert1_baseColor_1001.ktx2`, `public/lod2/lambert1_occlusionRoughnessMetallic_1001.ktx2`, `public/lod2/lambert1_normal_1001.webp`.
-- Confirm KTX2 support is initialized: `KTX2Loader().setTranscoderPath('libs/basis/').detectSupport(renderer)` (`src/main.js:81–88`).
-- Ensure `MeshoptDecoder` is set (`src/main.js:86–87`) to load EXT_meshopt_compression.
-- After switching to `lod2`, set GUI “Normal Map Source” to `lod2` and ensure “Use AORM Maps” is enabled (`src/main.js:644–677`).
-- If AO looks absent, duplicate `uv` → `uv2` as shown above.
-
-## Visual Discrepancy Explanation
-- `LOD2` is not implemented correctly and serves here as a breakdown of the process and troubleshooting steps.
-- The different appearance observed in `LOD2` is caused by an incorrect base color source (`public/lod2/lambert1_baseColor_1001.png`), not by runtime material assignment.
-- Since glTF references `lambert1_baseColor_1001.ktx2`, any KTX2 derived from an incorrect PNG will propagate the issue.
-- Side-by-side validation:
-  - Compare PNG (source) and runtime-rendered KTX2 in a neutral lighting setup.
-  - Temporarily set `targetMaterial.map` to load the PNG directly to isolate the source.
-- Correction process:
-  - Replace the PNG with the correct Substance Painter export.
-  - Regenerate KTX2 via `toktx`.
-  - Optionally validate with `ktxinfo`/`ktx2check` and confirm visual parity in-app.
-  - You can inspect glTF texture assignments directly at `public/lod2/Untitled.gltf:180–192`.
+### Note on LOD2 Textures
+- LOD2 contains incorrect textures; the basecolor was baked incorrectly. This level is included to illustrate the workflow and process breakdown, not as a correctness reference. You can inspect texture bindings at `public/lod2/Untitled.gltf:180–192`.
 
 ## Texture Optimization
 - All original textures (especially PNGs) are preserved under `public/lod*/`.
