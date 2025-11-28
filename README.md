@@ -29,52 +29,7 @@ Dependencies from `package.json`:
 - Programmatic LOD switch: `window.changeLOD('lod2')` (`src/main.js:679`).
 
 ## Material Assignment Issue (LOD2)
-
-### Symptoms
-- When switching to LOD2, the appearance may not match expectations. In this project LOD2 is intentionally incomplete and used to illustrate the workflow; the mismatch is caused by an incorrect basecolor source image rather than a runtime material assignment failure.
-
-### Implementation Notes
-- LOD assets are loaded and cached (`src/main.js:77–131`).
-- LOD switch clones the cached mesh and replaces its material with a fresh `MeshPhysicalMaterial` (`src/main.js:139–170`).
-- Material properties are then copied from the original glTF material and UI controls via `applyMaterialProperties` (`src/main.js:185–241`).
-- The normal map is taken from a user-selected source (`appControls.normalMap.selectedNormalMap`), defaulting to `lod1` (`src/main.js:286–293`, `src/main.js:212–214`).
-
-### Root Causes
-- Normal map source defaults to `lod1`, so LOD2 will use LOD1’s normal map unless the user changes the selector. This gives the impression that “LOD2 materials aren’t assigned correctly”.
-- Ambient occlusion requires `uv2`; current geometry provides only `TEXCOORD_0` (`public/lod2/Untitled.gltf:232–237`). Without `uv2`, an `aoMap` assigned to `MeshPhysicalMaterial` won’t render.
-- Map transfer relies on original GLTF material presence. If a map is missing at a given LOD, fallback may differ from expectations (`src/main.js:195–211`).
-
-### How It Should Work
-1. On LOD change, clone the mesh, create a new `MeshPhysicalMaterial`, and transfer maps from the originating GLTF material for that specific LOD (`src/main.js:150–165`, `src/main.js:185–241`).
-2. Normal map should default to the current LOD’s normal map to avoid cross-LOD mismatches.
-3. If AO is enabled, ensure `uv2` exists on the geometry by duplicating `uv` to `uv2` when the model only has one UV set.
-
-### Recommended Fixes
-- Auto-select normal map per LOD:
-  ```js
-  // in changeLOD (after cloning), ensure normal map source tracks the current LOD
-  appControls.normalMap.selectedNormalMap = lodKey; // keep per-LOD normal map
-  updateModelMaterials();
-  ```
-- Duplicate UVs for AO when needed:
-  ```js
-  model.traverse((child) => {
-    if (child.isMesh && child.geometry && !child.geometry.getAttribute('uv2')) {
-      const uv = child.geometry.getAttribute('uv');
-      if (uv) child.geometry.setAttribute('uv2', uv); // enable aoMap
-    }
-  });
-  ```
-- Prefer original GLTF maps when available:
-  ```js
-  // in applyMaterialProperties: use originalMaterial.normalMap if selectedNormalMap is 'auto'
-  targetMaterial.normalMap = normalMapCtrl.normalMapEnabled
-    ? (normalMapCtrl.selectedNormalMap === 'auto' ? originalMaterial?.normalMap : normalMaps[normalMapCtrl.selectedNormalMap])
-    : null;
-  ```
-
-### Note on LOD2 Textures
-- LOD2 contains incorrect textures; the basecolor was baked incorrectly. This level is included to illustrate the workflow and process breakdown, not as a correctness reference. You can inspect texture bindings at `public/lod2/Untitled.gltf:180–192`.
+- LOD2 contains incorrect textures; the basecolor was baked incorrectly. This level is included to illustrate the workflow and process breakdown, not as a correctness reference. Inspect texture bindings at `public/lod2/Untitled.gltf:180–192`.
 
 ## Texture Optimization
 - All original textures (especially PNGs) are preserved under `public/lod*/`.
